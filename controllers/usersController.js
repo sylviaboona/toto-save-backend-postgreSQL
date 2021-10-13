@@ -50,9 +50,9 @@ const createUser = async (req, res) => {
 
 // Get all users - this is an admin functionality
 const getAllUsers = async (req, res) => {
-  const {user_id} = req.user
+  // const {user_id} = req.user
   try {
-    const getAllUsers = await pool.query("SELECT * FROM users WHERE user_id = $1", [user_id]);
+    const getAllUsers = await pool.query("SELECT * FROM users");// WHERE user_id = $1", [user_id]);
     res.json(getAllUsers.rows[0])
   } catch (err) {
     console.error(err.message)
